@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask import abort
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -17,7 +18,7 @@ def user(name):
 
 @app.route("/render-user/<name>", methods=["GET"])
 def user_render(name):
-    return render_template('user.html', name=name)
+    return render_template('user.html', name=name, current_time=datetime.utcnow)
 
 @app.errorhandler(404)
 def page_not_found(e):
