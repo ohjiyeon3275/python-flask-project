@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask-WTF</title>
+</head>
+<body>
+    {% import "bootstrap/wtf.html" as wtf %}
+
+    {% block here %}
+    {% if name %} 
+        <div>welcome back! {{ name }}</div>
+    {% else %} 
+        <div>glad to see you :)</div>
+    {% endif %}
+
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name(id='text-field') }}
+        {{ form.submit() }}
+    </form>
+
+    {% endblock %}
+</body>
+</html>
