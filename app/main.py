@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from typing import Optional
 from pydantic import BaseModel
+from app.routers import enum
 
 # it's like typescript :)
 class Item(BaseModel):
