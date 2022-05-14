@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from enum import Enum
+from fastapi import APIRouter
 
 class MyName(str, Enum):
     uh = "oh"
@@ -7,9 +8,9 @@ class MyName(str, Enum):
     oh = "jiyeon"
 
 
-app = FastAPI()
+router = APIRouter()
 
-@app.get("/models/{my_name}", tags=["myNames"])
+@router.get("/models/{my_name}", tags=["myNames"])
 async def get_model(my_name: MyName):
     if my_name == MyName.oh:
         return {"name": my_name, "message": "key"}

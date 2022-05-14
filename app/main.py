@@ -2,7 +2,8 @@ from fastapi import FastAPI
 
 from typing import Optional
 from pydantic import BaseModel
-from app.routers import enum
+from .routers import enum
+
 
 # it's like typescript :)
 class Item(BaseModel):
@@ -12,6 +13,7 @@ class Item(BaseModel):
 
 
 app = FastAPI()
+app.include_router(enum.router)
 
 @app.get("/")
 def read_root():
